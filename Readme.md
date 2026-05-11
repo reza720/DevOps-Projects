@@ -1,0 +1,1 @@
+This repository is a collection of DevOps projects covering containerization, CI/CD pipelines, Infrastructure as Code (IaC), monitoring, and logging.
