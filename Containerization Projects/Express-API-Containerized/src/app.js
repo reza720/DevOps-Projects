@@ -1,0 +1,44 @@
+const express=require("express");
+const helmet=require("helmet");
+const rateLimit=require("express-rate-limit");
+const hpp=require("hpp");
+const cors=require("cors");
+
+const globalErrorHandler=require("./middlewares/globalErrorHandler");
+const router=require("./routers");
+
+const app=express();
+
+// Security Middlewares
+app.use(helmet());
+app.use(cors());
+app.use(hpp());
+
+// Body Parser
+app.use(express.json({limit:"10kb"}));
+app.use(express.urlencoded({extended:true, limit:"10kb"}));
+
+// Global Rate Limiter
+app.use("/api",rateLimit({
+    windowMs: 15 * 60 * 1000, 
+    max: 100,
+    message: "Too many requests, try again later",
+    statusCode: 429,
+    standardHeaders: true,
+    legacyHeaders: false
+}));
+
+// Mount Router
+app.use("/api",router);
+
+// Handling not found routes
+app.use((req,res,next)=>{
+    const err=new Error("Route not found");
+    err.statusCode=404;
+    next (err);
+});
+
+// Global Error Handler
+app.use(globalErrorHandler);
+
+module.exports=app;
