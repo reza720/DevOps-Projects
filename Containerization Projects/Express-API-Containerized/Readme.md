@@ -19,6 +19,9 @@ Using the 'node server.js' command in the terminal from DevOps 'Projects\Contain
 
 3. Dockerfile
 
+4. Dockerignore 
+
 ## Running the Container
 
 ## Container Testing
+test the dockerignore
