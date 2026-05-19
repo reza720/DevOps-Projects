@@ -1,17 +1,14 @@
-// Import the Sequelize library
 const { Sequelize } = require("sequelize");
 
-// Create a new Sequelize instance (database connection)
 const sequelize = new Sequelize(
-    'project1',
+    'My_Auth_API',
     'root',
     'root',
     {
         host: "localhost",
         dialect: "mysql",
-        logging: false // Disable SQL query logging
+        logging: false 
     }
 );
 
-// Export the Sequelize instance for use in other modules
 module.exports = sequelize;
