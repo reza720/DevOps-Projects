@@ -5,7 +5,7 @@ const sequelize = new Sequelize(
     'root',
     'root',
     {
-        host: "localhost",
+        host: "host.docker.internal",
         dialect: "mysql",
         logging: false 
     }

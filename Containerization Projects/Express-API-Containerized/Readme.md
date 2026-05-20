@@ -26,7 +26,7 @@ These are the commands used in the Dockerfile to create a Docker image:
     - RUN npm install --production   // Installs only the production dependencies inside the container
     - COPY . .                       // Copies the application source code into the /app directory inside the container
     - EXPOSE 3000                    // Indicates that the application runs on port 3000 inside the container
-    - CMD ["node", "server.js"]      // Starts the application by running the node server.js command when the container starts
+    - CMD ["node", "src/server.js"]  // Starts the application by running the node server.js command when the container starts
 
 4. Dockerignore  
 The following files and folders are excluded from being copied into the container when the Docker image is created:
@@ -36,7 +36,15 @@ The following files and folders are excluded from being copied into the containe
     - logs
     - README.md
 
-## Running the Container
+5. Building and Running the Container
+- Building the Container: In the app root directory, run the following command in the terminal: docker build -t express-api-containerized .
+    - -t allows you to assign a readable name (tag) to the image. Without it, Docker will generate a random image ID instead.
+    - . tells Docker to build the image from the current directory (where the Dockerfile is located).
+- Running the Container: In the root directory again, run: docker run -p 3000:3000 express-api-containerized
+    - -p maps the host machine port to the container port used by the application.
+    - The first 3000 is the host (machine) port, and the second 3000 is the container (Docker) port where the app is running.
+
+
 
 ## Container Testing
 test the dockerignore
