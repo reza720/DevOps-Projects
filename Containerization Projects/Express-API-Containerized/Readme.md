@@ -20,13 +20,13 @@ Using the 'node server.js' command in the terminal from 'DevOps Projects\Contain
 3. Dockerfile  
 These are the commands used in the Dockerfile to create a Docker image:
 
-    - FROM node:20-alpine            // Creates the base image using Node.js version 20 as the runtime with Alpine Linux as the operating system
-    - WORKDIR /app                   // Creates and sets /app as the working directory inside the container
-    - COPY package*.json ./          // Copies the package.json and package-lock.json files, which contain the Express API dependencies
-    - RUN npm install --production   // Installs only the production dependencies inside the container
-    - COPY . .                       // Copies the application source code into the /app directory inside the container
-    - EXPOSE 3000                    // Indicates that the application runs on port 3000 inside the container
-    - CMD ["node", "src/server.js"]  // Starts the application by running the node server.js command when the container starts
+    - FROM node:20-alpine &nbsp;&nbsp;&nbsp;&nbsp;Creates the base image using Node.js version 20 as the runtime with Alpine Linux as the operating system
+    - WORKDIR /app&nbsp;&nbsp;&nbsp;&nbsp;Creates and sets /app as the working directory inside the container
+    - COPY package*.json ./ &nbsp;&nbsp;&nbsp;&nbsp;Copies the package.json and package-lock.json files, which contain the Express API dependencies
+    - RUN npm install --production &nbsp;&nbsp;&nbsp;&nbsp;Installs only the production dependencies inside the container
+    - COPY . . &nbsp;&nbsp;&nbsp;&nbsp; Copies the application source code into the /app directory inside the container
+    - EXPOSE 3000 &nbsp;&nbsp;&nbsp;&nbsp;Indicates that the application runs on port 3000 inside the container
+    - CMD ["node", "src/server.js"] &nbsp;&nbsp;&nbsp;&nbsp;Starts the application by running the node server.js command when the container starts
 
 4. Dockerignore  
 The following files and folders are excluded from being copied into the container when the Docker image is created:
