@@ -36,15 +36,15 @@ The following files and folders are excluded from being copied into the containe
     - logs
     - README.md
 
-5. Building and Running the Container
-- Building the Container: In the app root directory, run the following command in the terminal: docker build -t express-api-containerized .
+5. Building the Image and Running the Container
+- Building the Image: In the app root directory, run the following command in the terminal: docker build -t express-api-containerized .
+    - It will create a Docker image named express-api-containerized from the Dockerfile and ignore the files and folders listed in the .dockerignore file.
     - -t allows you to assign a readable name (tag) to the image. Without it, Docker will generate a random image ID instead.
     - . tells Docker to build the image from the current directory (where the Dockerfile is located).
-- Running the Container: In the root directory again, run: docker run -p 3000:3000 express-api-containerized
+- Running the Container: In the root directory again, run: docker run --name Auth_API_Container -p 3000:3000 express-api-containerized
+    - It creates a container named Auth_API_Container from the built image and starts it.
     - -p maps the host machine port to the container port used by the application.
     - The first 3000 is the host (machine) port, and the second 3000 is the container (Docker) port where the app is running.
-
-
 
 ## Container Testing
 test the dockerignore
