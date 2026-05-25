@@ -13,7 +13,7 @@ This is a simple static website built with HTML, CSS, and JavaScript. No framewo
 ## Containerization Process
 Since this is a static website, it needs a web server to serve it to clients. Here, I chose Nginx as the web server.
 
-1. **Dockerfile**
+1. **Dockerfile:**
 Here are the commands used in the Dockerfile:
 - `FROM nginx:alpine` The base image of Nginx and the lightweight Alpine Linux OS it runs on.
 - `RUN rm -rf /usr/share/nginx/html/*` Removes the default static files provided by Nginx.
@@ -21,10 +21,10 @@ Here are the commands used in the Dockerfile:
 - `EXPOSE 80` Exposes port 80, which is the default HTTP port used by Nginx inside the container.
 - `CMD ["nginx", "-g", "daemon off;"]` Starts the Nginx server in the foreground so the container keeps running.
 
-2. **Building the Image**
+2. **Building the Image:**
 In the root directory of the website, the following command is run: `docker build -t static-website .`; This command builds a Docker image named static-website using the Dockerfile in the current directory. 
 
-3. **Running the Image**
+3. **Running the Image:**
 In the root directory, run the following command in the terminal: `docker run --name static-website-container -p 8080:80 static-website`; This command:
 - Creates and starts a container named static-website-container
 - Maps port 80 (inside the container, where Nginx is running) to port 8080 on the host machine
