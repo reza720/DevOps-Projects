@@ -5,8 +5,10 @@
   - Dependecies: express, security libraries, winston, ORM 
   - State: Stateless 
   - Environment Variables: None
-  - Port 3000
+  - Port: 3000
   - Startup Command: node server.js
+
+This is a simple authentication API that allows users to sign up and log in, built with Express.js using a layered architecture. Sequelize is used as the ORM, MySQL as the database, and Winston for logging user activity. The main focus of this project is to demonstrate how to Dockerize an Express.js API rather than how to build the API itself.
 
 Before containerization, we need to make sure the application works correctly in the local environment.  
 Using the `node server.js` command in the terminal from `DevOps Projects\Containerization Projects\Express-API-Containerized\src`, the API is now connected to the database and running on port 3000 of my machine.
