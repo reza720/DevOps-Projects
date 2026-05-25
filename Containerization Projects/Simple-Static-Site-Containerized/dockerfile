@@ -1,0 +1,13 @@
+FROM nginx:alpine
+
+# Remove default Nginx static files
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy your website files (HTML, CSS, JS) into Nginx web directory
+COPY . /usr/share/nginx/html
+
+# Expose port 80 (default HTTP port for Nginx)
+EXPOSE 80
+
+# Start Nginx in foreground (required for Docker containers)
+CMD ["nginx", "-g", "daemon off;"]
