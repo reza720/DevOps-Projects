@@ -44,4 +44,7 @@ In the root directory, run: `docker run --name Auth_API_Container -p 3000:3000 e
     - -p maps the host machine port to the container port used by the application.
     - The first 3000 is the host (machine) port, and the second 3000 is the container (Docker) port where the app is running.
 
+Now, to check if the container is running, we can run in a new terminal: `docker ps`
+
+To stop the container, run: `docker stop express-api-containerized`
 
